@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using System.Security.Cryptography.X509Certificates;
 using ArtMuseumLibrary;
 using Newtonsoft.Json;
-
+using static ArtMuesumConsoleApp.ConsoleLogging;
 namespace ArtMuesumConsoleApp
 {
     public class Program
@@ -16,12 +16,15 @@ namespace ArtMuesumConsoleApp
 
             List<int> artIds = baseServiceCall.GetArtIds(BASE_URL);
 
-            Console.WriteLine("Welcome To The Metropolitan Museum of Art Collection!");
-            Console.WriteLine();
-            Console.WriteLine("This site will randomly generate a piece of art from our prestine collection, and give you details about your random selection.");
-            Console.WriteLine();
+            PassMessage("Welcome To The Metropolitan Museum of Art Collection!");
+            BlankLine();
+            PassMessage("This site will randomly generate a piece of art from our prestine collection, and give you details about your random selection.");
+            BlankLine();
+            PassMessage("Please give us a number of art pieces you would like to view. NOTE Some art pieces do NOT have complete data");
+             int userResponse = int.Parse(Console.ReadLine());
+            BlankLine();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < userResponse; i++)
             {
                 int index = random.Next(artIds.Count);
 
@@ -29,20 +32,18 @@ namespace ArtMuesumConsoleApp
 
                 var artPiece = baseServiceCall.GetArtPiece(artUrl);
 
-
-
-                Console.WriteLine($"Image: {artPiece.PrimaryImage}");
-                Console.WriteLine($"Title: {artPiece.Title}");
-                Console.WriteLine($"Artist Name: {artPiece.ArtistDisplayName}");
-                Console.WriteLine($"Bio: {artPiece.ArtistDisplayBio}");
-                Console.WriteLine($"Art Start Year: {artPiece.ArtistBeginDate}");
-                Console.WriteLine($"Art Completion Year: {artPiece.ArtistEndDate}");
-                Console.WriteLine($"Art WikiData: {artPiece.ArtistWikidataURL}");
-                Console.WriteLine($"Art Region: {artPiece.Region}");
-                Console.WriteLine($"Art Culture: {artPiece.Culture}");
-                Console.WriteLine();
-                Console.WriteLine("---------------------------------------");
-                Console.WriteLine();
+                PassMessage($"Image: {artPiece.PrimaryImage}");
+                PassMessage($"Title: {artPiece.Title}");
+                PassMessage($"Artist Name: {artPiece.ArtistDisplayName}");
+                PassMessage($"Bio: {artPiece.ArtistDisplayBio}");
+                PassMessage($"Art Start Year: {artPiece.ArtistBeginDate}");
+                PassMessage($"Art Completion Year: {artPiece.ArtistEndDate}");
+                PassMessage($"Art WikiData: {artPiece.ArtistWikidataURL}");
+                PassMessage($"Art Region: {artPiece.Region}");
+                PassMessage($"Art Culture: {artPiece.Culture}");
+                BlankLine();
+                PassMessage("---------------------------------------");
+                BlankLine();
             }
 
 
