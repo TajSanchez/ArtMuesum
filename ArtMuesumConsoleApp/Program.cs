@@ -8,7 +8,7 @@ namespace ArtMuesumConsoleApp
 {
     public class Program
     {
-       private const string BASE_URL = $"https://collectionapi.metmuseum.org/public/collection/v1/objects";
+        private const string BASE_URL = $"https://collectionapi.metmuseum.org/public/collection/v1/objects";
         static void Main(string[] args)
         {
             BaseServiceCall baseServiceCall = new BaseServiceCall(new HttpClient());
@@ -21,7 +21,8 @@ namespace ArtMuesumConsoleApp
             PassMessage("This site will randomly generate a piece of art from our prestine collection, and give you details about your random selection.");
             BlankLine();
             PassMessage("Please give us a number of art pieces you would like to view. NOTE Some art pieces do NOT have complete data");
-             int userResponse = int.Parse(Console.ReadLine());
+            BlankLine();
+            int userResponse = int.Parse(Console.ReadLine());
             BlankLine();
 
             for (int i = 0; i < userResponse; i++)
@@ -40,15 +41,12 @@ namespace ArtMuesumConsoleApp
                 PassMessage($"Art Completion Year: {artPiece.ArtistEndDate}");
                 PassMessage($"Art WikiData: {artPiece.ArtistWikidataURL}");
                 PassMessage($"Art Region: {artPiece.Region}");
+                PassMessage($"Art Country: {artPiece.Country}");
                 PassMessage($"Art Culture: {artPiece.Culture}");
                 BlankLine();
                 PassMessage("---------------------------------------");
                 BlankLine();
             }
-
-
-
-
         }
     }
 }
