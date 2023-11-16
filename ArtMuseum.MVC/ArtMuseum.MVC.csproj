@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="images\Museum.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\bostonmuseum.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArtMuseumApp\ArtMuseumLibrary.csproj" />
+  </ItemGroup>
+
+</Project>
