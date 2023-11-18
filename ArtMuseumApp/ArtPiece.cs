@@ -12,7 +12,10 @@ namespace ArtMuseumLibrary
     {
         #region Public Properties
         [JsonProperty("primaryImage")]
-        public string PrimaryImage { get; set; } = "Image Unavailable";
+        public string PrimaryImage { get; set; }
+
+        [JsonProperty("primaryImageSmall")]
+        public string PrimaryImageSmall { get; set; }
 
 
         [JsonProperty("title")]

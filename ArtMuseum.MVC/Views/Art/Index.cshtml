@@ -1,5 +1,84 @@
 ﻿@using ArtMuseumLibrary;
-@model ArtPiece
+@model List<ArtPiece>;
 
 
-<img src= "@Model.PrimaryImage" style="width=200;height=400;" />
+<style>
+    body {
+        background-image: url('bostonmuseum.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #fff;
+        font-family: 'Century Schoolbook';
+    }
+
+    div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+
+<div class="text-center" style="color:#fff;">
+    <h1>Here is where you can see four random pieces of art with all of the information available for the pieces.</h1>
+</div>
+
+@foreach (var artPiece in Model)
+{
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="img_5terre.jpg">
+                <img src="@artPiece.PrimaryImageSmall" alt="@artPiece.Title">
+            </a>
+            <div class="desc">@artPiece.Title</div>
+        </div>
+    </div>
+    @* <img src="@artPiece.PrimaryImageSmall" style="width: 350px;height: 350px; " />
+
+    <div style="background-color:rgb(54, 24, 24); border-radius:25px; width:30%; height:100%; font-weight:400">
+        <div style="margin: 12px;">
+            <h1>@artPiece.Title</h1>
+
+            <hr />
+
+            <p>@artPiece.ArtistDisplayName</p>
+
+            <p>Art Completion Duration @artPiece.ArtistBeginDate to @artPiece.ArtistEndDate</p>
+
+            <p>Country: @artPiece.Country</p>
+
+            <p>Region: @artPiece.Region</p>
+
+            <p>Wikidata: <a herf="@artPiece.ArtistWikidataURL" /> </p>
+        </div>
+    </div> *@
+}

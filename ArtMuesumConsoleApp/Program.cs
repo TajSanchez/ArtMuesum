@@ -25,6 +25,7 @@ namespace ArtMuesumConsoleApp
             int userResponse = int.Parse(Console.ReadLine());
             BlankLine();
 
+           
             for (int i = 0; i < userResponse; i++)
             {
                 int index = random.Next(artIds.Count);
@@ -33,7 +34,7 @@ namespace ArtMuesumConsoleApp
 
                 var artPiece = baseServiceCall.GetArtPiece(artUrl);
 
-                PassMessage($"Image: {artPiece.PrimaryImage}");
+                PassMessage($"Image: {artPiece.PrimaryImageSmall}");
                 PassMessage($"Title: {artPiece.Title}");
                 PassMessage($"Artist Name: {artPiece.ArtistDisplayName}");
                 PassMessage($"Bio: {artPiece.ArtistDisplayBio}");

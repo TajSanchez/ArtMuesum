@@ -10,18 +10,34 @@ namespace ArtMuseum.MVC.Controllers
 
         public IActionResult Index()
         {
-            
+            List<ArtPiece> artCollection = new List<ArtPiece>();
+
             BaseServiceCall baseServiceCall = new BaseServiceCall(new HttpClient());
             Random random = new Random();
 
             List<int> artIds = baseServiceCall.GetArtIds(BASE_URL);
 
-            int index = random.Next(artIds.Count);
+            ArtPiece artPiece = new ArtPiece();
 
-            var artUrl = $"{BASE_URL}/{artIds[index]}";
+            int counter = 0;
 
-            var artPiece = baseServiceCall.GetArtPiece(artUrl);
-            return View(artPiece);
+            while (counter != 4)
+            {
+                while (string.IsNullOrEmpty(artPiece.PrimaryImageSmall) && string.IsNullOrWhiteSpace(artPiece.PrimaryImageSmall))
+                {
+                    var index = random.Next(artIds.Count);
+                    var artUrl = $"{BASE_URL}/{artIds[index]}";
+
+                    artPiece = baseServiceCall.GetArtPiece(artUrl);
+                }
+
+                artCollection.Add(artPiece);
+                counter++;
+                artPiece = new();
+            }
+
+
+            return View(artCollection);
         }
     }
 }
