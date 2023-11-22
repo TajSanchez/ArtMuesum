@@ -40,6 +40,7 @@ namespace ArtMuesumConsoleApp
                 PassMessage($"Bio: {artPiece.ArtistDisplayBio}");
                 PassMessage($"Art Start Year: {artPiece.ArtistBeginDate}");
                 PassMessage($"Art Completion Year: {artPiece.ArtistEndDate}");
+                PassMessage($"Art URL: {artPiece.ObjectURL}");
                 PassMessage($"Art WikiData: {artPiece.ArtistWikidataURL}");
                 PassMessage($"Art Region: {artPiece.Region}");
                 PassMessage($"Art Country: {artPiece.Country}");

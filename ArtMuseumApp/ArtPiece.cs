@@ -42,6 +42,12 @@ namespace ArtMuseumLibrary
         [JsonProperty("artistWikidata_URL")]
         public string ArtistWikidataURL { get; set; } = "No Wikidata Available";
 
+        [JsonProperty("objectURL")]
+        public string ObjectURL { get; set; }
+        
+        [JsonProperty("objectDate")]
+        public string ObjectDate { get; set; }
+
         [JsonProperty("creditLine")]
         public string CreditLine { get; set; } = "Ceditline Unknown";
 

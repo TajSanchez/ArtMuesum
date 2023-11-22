@@ -54,19 +54,23 @@ div.desc {
 
 @foreach (var artPiece in Model)
 {
-    <div class="responsive">
+    @*  <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_5terre.jpg">
                 <img src="@artPiece.PrimaryImageSmall" alt="@artPiece.Title">
             </a>
             <div class="desc">@artPiece.Title</div>
         </div>
-    </div>
-    @* <img src="@artPiece.PrimaryImageSmall" style="width: 350px;height: 350px; " />
+    </div> *@
 
-    <div style="background-color:rgb(54, 24, 24); border-radius:25px; width:30%; height:100%; font-weight:400">
-        <div style="margin: 12px;">
-            <h1>@artPiece.Title</h1>
+    <center><img src="@artPiece.PrimaryImageSmall" style="width: 485px;height: 485px; " /></center>
+
+
+
+    <center>
+        <div style="background-color:rgb(54, 24, 24); border-radius:25px; width:60%; height:100%; font-weight:400">
+        <div style="margin: 12px;" class="align-content-center">
+            <h2>@artPiece.Title</h2>
 
             <hr />
 
@@ -75,10 +79,8 @@ div.desc {
             <p>Art Completion Duration @artPiece.ArtistBeginDate to @artPiece.ArtistEndDate</p>
 
             <p>Country: @artPiece.Country</p>
+            <p>Link to Art: <a href="@artPiece.ObjectURL">Click Me!</a></p>
 
-            <p>Region: @artPiece.Region</p>
-
-            <p>Wikidata: <a herf="@artPiece.ArtistWikidataURL" /> </p>
         </div>
-    </div> *@
+    </div> </center>
 }

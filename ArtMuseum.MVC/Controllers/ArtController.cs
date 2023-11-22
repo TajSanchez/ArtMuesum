@@ -7,6 +7,7 @@ namespace ArtMuseum.MVC.Controllers
     public class ArtController : Controller
     {
         private const string BASE_URL = $"https://collectionapi.metmuseum.org/public/collection/v1/objects";
+        //private const string ART_URL = $"https://www.metmuseum.org/art/collection/search";
 
         public IActionResult Index()
         {
@@ -23,7 +24,7 @@ namespace ArtMuseum.MVC.Controllers
 
             while (counter != 4)
             {
-                while (string.IsNullOrEmpty(artPiece.PrimaryImageSmall) && string.IsNullOrWhiteSpace(artPiece.PrimaryImageSmall))
+                while (string.IsNullOrEmpty(artPiece.PrimaryImageSmall) && string.IsNullOrWhiteSpace(artPiece.PrimaryImageSmall)) 
                 {
                     var index = random.Next(artIds.Count);
                     var artUrl = $"{BASE_URL}/{artIds[index]}";
